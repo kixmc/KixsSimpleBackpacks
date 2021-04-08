@@ -1,8 +1,0 @@
-name: KixsSimpleBackpacks
-author: kixmc
-version: 1.0.0
-main: com.kixmc.Backpacks.Core.KixsSurvivalBackpacks
-api-version: 1.16
-commands:
-  backpack:
-    description: Backpacks command
