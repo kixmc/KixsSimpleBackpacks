@@ -1,0 +1,28 @@
+# Ignore IDEA files
+/.idea
+*.iml
+/bin/
+
+# Eclipse files
+/.settings/
+*.project
+*.classpath
+*.recommenders
+
+# NetBeans files
+nbproject/private/
+build/
+nbbuild/
+nbdist/
+.nb-gradle/
+
+# Maven files
+*/target
+*dependency-reduced-pom.xml
+
+# Java files
+*.class
+*.log
+*.ctxt
+hs_err_pid*
+/target/
