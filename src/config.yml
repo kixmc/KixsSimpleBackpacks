@@ -9,7 +9,7 @@ backpack:
   lore:
     new:
       - " "
-      - "&aBrand new, open me!"
+      - "&bBrand new, open me!"
       - " "
     empty:
       - " "
