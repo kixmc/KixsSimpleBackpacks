@@ -3,6 +3,8 @@
 *.iml
 /bin/
 
+*/out
+
 # Eclipse files
 /.settings/
 *.project
