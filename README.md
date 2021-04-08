@@ -13,5 +13,9 @@ Simple customizable, survival-friendly item backpack plugin
   - If backpack size is made smaller, when players open their backpacks any items that previously fit in the older, bigger size will be dropped at their feet
   - Backpack item material, any text/lores from the config, and other options are refreshed and applied to backpacks when opened
 
+## Commands & Permissions
+- **/backpacks get**: get a backpack without having to craft it [permission: *backpacks.getcommand*]
+- **/backpacks reload**: reload & update changes to the config file [permission: *backpacks.reload*]
+
 ## Compile
 Requires Java 8 & Maven
