@@ -1,7 +1,7 @@
 # KixsSimpleBackpacks
-Simple customizable, survival-friendly item backpack plugin
+Simple & customizable survival-friendly item backpack plugin
 
-# Compatibility
+## Compatibility
 - Spigot, Paper, & CraftBukkit on versions **1.13.x - 1.16.x** (other server types may work but are not directly supported)
 - Java 8 or newer
 
