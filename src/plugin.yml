@@ -4,5 +4,10 @@ version: 0.2.0
 main: com.kixmc.backpacks.core.SimpleBackpacks
 api-version: 1.16
 commands:
-  backpack:
-    description: Backpacks command
+  backpacks:
+    description: KixsSimpleBackpacks core command
+permissions:
+  backpacks.getcommand:
+    default: op
+  backpacks.reload:
+    default: op
