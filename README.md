@@ -22,4 +22,4 @@ Simple customizable, survival-friendly item backpack plugin
 - **/backpacks reload**: reload & update changes to the config file [permission: *backpacks.reload*]
 
 ## Compile
-Requires Java 8 & Maven
+Requires Java & Maven
