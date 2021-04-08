@@ -1,5 +1,5 @@
-# KixsSimpleBackpacks
-Simple & customizable survival-friendly item backpack plugin
+# Kix's Simple Backpacks
+Simple & customizable survival-friendly item backpack plugin - a happy medium between bundles & shulker boxes
 
 ## Compatibility
 * Spigot, Paper, & CraftBukkit on versions **1.13.x - 1.16.x** (other server types may work but are not directly supported)
@@ -21,6 +21,9 @@ Simple & customizable survival-friendly item backpack plugin
 - **/backpacks get**: get a backpack without having to craft it [permission: *backpacks.getcommand*]
 - **/backpacks reload**: reload & update changes to the config file [permission: *backpacks.reload*]
 
+## Download
+https://www.spigotmc.org/resources/91098/
+
 ## Compile
 Requires Java 8 & Maven
 ```
@@ -29,5 +32,5 @@ Requires Java 8 & Maven
 ```
 Compiled jar will be in the /target directory
 
-## Download pre-compiled
-
+## Support
+If you have any questions, suggestions, or just want to say hi you can join my Discord server here: https://discord.com/invite/HKnDTRj
