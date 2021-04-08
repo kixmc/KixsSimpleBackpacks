@@ -85,7 +85,7 @@ public class ItemHandler {
 
                 if (contents.size() > 5) {
                     lore.add(" ");
-                    lore.add(ChatColor.WHITE + " " + ChatColor.WHITE + "" + ChatColor.ITALIC + "and " + ChatColor.GRAY + (contents.size() - counter) + ChatColor.WHITE + "" + ChatColor.ITALIC + "more... ");
+                    lore.add(ChatColor.WHITE + " " + ChatColor.WHITE + "" + ChatColor.ITALIC + "and " + ChatColor.GRAY + (contents.size() - counter) + ChatColor.WHITE + "" + ChatColor.ITALIC + " more... ");
                 }
 
                 lore.add(" ");
