@@ -24,11 +24,7 @@ public class BackpackUtils {
             foundKey = container.get(key, PersistentDataType.STRING) != null;
         }
 
-        if (foundKey) {
-            return true;
-        }
-
-        return false;
+        return foundKey;
     }
 
 }
