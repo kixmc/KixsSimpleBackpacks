@@ -1,6 +1,10 @@
 # KixsSimpleBackpacks
 Simple customizable, survival-friendly item backpack plugin
 
+# Supports
+Spigot, Paper, & CraftBukkit on versions **1.13.x - 1.16.x** (other server types may work but are not directly supported)
+Java 8 or newer
+
 ![default backpack crafting recipe](https://i.imgur.com/2J5NR76.png)    ![backpack lore example](https://i.imgur.com/htdEMTS.png)
 
 ## Features
@@ -16,10 +20,6 @@ Simple customizable, survival-friendly item backpack plugin
 ## Commands & Permissions
 - **/backpacks get**: get a backpack without having to craft it [permission: *backpacks.getcommand*]
 - **/backpacks reload**: reload & update changes to the config file [permission: *backpacks.reload*]
-
-# Supports
-Spigot, Paper, & CraftBukkit on versions **1.13.x - 1.16.x** (other server types may work but are not directly supported)
-Java 8 or older
 
 ## Compile
 Requires Java 8 & Maven
