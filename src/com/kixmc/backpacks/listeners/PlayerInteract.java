@@ -1,8 +1,10 @@
 package com.kixmc.backpacks.listeners;
 
 import com.kixmc.backpacks.contents.ItemHandler;
+import com.kixmc.backpacks.core.SimpleBackpacks;
 import com.kixmc.backpacks.utils.BackpackUtils;
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
@@ -25,12 +27,22 @@ public class PlayerInteract implements Listener {
 
             if (BackpackUtils.isBackpack(is)) {
 
+                is.setType(Material.valueOf(SimpleBackpacks.get().getConfig().getString("backpack.material")));
+
                 ArrayList<ItemStack> contents = ItemHandler.get(is);
 
-                Inventory backpack = Bukkit.createInventory(e.getPlayer(), 18, "Backpack");
+                Inventory backpack = Bukkit.createInventory(e.getPlayer(), (SimpleBackpacks.get().getConfig().getInt("backpack.rows") * 9), SimpleBackpacks.get().getConfig().getString("backpack.gui-title"));
 
-                contents.stream()
-                        .forEach(itemStack -> backpack.addItem(itemStack));
+                ArrayList<ItemStack> itemOverflow = new ArrayList<>();
+
+                for (ItemStack itemStack : contents) {
+                    if (backpack.addItem(itemStack).isEmpty()) continue;
+                    itemOverflow.add(itemStack);
+                }
+
+                for (ItemStack itemStack : itemOverflow) {
+                    e.getPlayer().getWorld().dropItem(e.getPlayer().getLocation(), itemStack);
+                }
 
                 e.getPlayer().openInventory(backpack);
 

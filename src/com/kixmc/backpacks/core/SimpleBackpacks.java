@@ -7,6 +7,8 @@ import com.kixmc.backpacks.listeners.InventoryClose;
 import com.kixmc.backpacks.listeners.PlayerInteract;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.io.File;
+
 public class SimpleBackpacks extends JavaPlugin {
 
     private static SimpleBackpacks main;
@@ -26,8 +28,30 @@ public class SimpleBackpacks extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new BlockPlace(), this);
         getServer().getPluginManager().registerEvents(new InventoryClick(), this);
 
+        loadConfig();
+
     }
 
     public void onDisable() {}
+
+    public void loadConfig() {
+
+        try {
+
+            if (!getDataFolder().exists()) {
+                getDataFolder().mkdirs();
+            }
+
+            File config = new File(getDataFolder(), "config.yml");
+
+            if (!config.exists()) {
+                saveDefaultConfig();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
 
 }

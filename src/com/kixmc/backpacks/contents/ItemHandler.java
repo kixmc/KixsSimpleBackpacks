@@ -1,8 +1,7 @@
 package com.kixmc.backpacks.contents;
 
 import com.kixmc.backpacks.core.SimpleBackpacks;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
+import com.kixmc.backpacks.utils.ChatUtil;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
@@ -37,13 +36,13 @@ public class ItemHandler {
 
             ArrayList<String> lore = new ArrayList<>();
 
-            lore.add(" ");
-            lore.add(ChatColor.GOLD + "0/18 " + ChatColor.WHITE + "slots in use");
-            lore.add(" ");
+            for(String loreLine : SimpleBackpacks.get().getConfig().getStringList("backpack.lore.empty")) {
+                lore.add(ChatUtil.colorize(loreLine.replace("{SLOTS_IN_USE}", "0")).replace("{MAX_SLOTS}", Integer.toString(SimpleBackpacks.get().getConfig().getInt("backpack.rows") * 9)));
+            }
 
             itemMeta.setLore(lore);
-
             backpack.setItemMeta(itemMeta);
+
         } else {
 
             try {
@@ -65,33 +64,44 @@ public class ItemHandler {
 
                 data.set(new NamespacedKey(SimpleBackpacks.get(), "kixs-backpacks"), PersistentDataType.STRING, encodedData);
 
-                ArrayList<String> lore = new ArrayList<>();
+                ArrayList<String> contentsPreview = new ArrayList<>();
 
-                lore.add(" ");
-                lore.add(ChatColor.GOLD + "" + contents.size() + "/18 " + ChatColor.WHITE + "slots in use");
-                lore.add(" ");
-
+                int previewSize = SimpleBackpacks.get().getConfig().getInt("backpack.lore.preview-slots-size");
                 int counter = 0;
-                for (int i = 0; i <= 5; i++) {
+                for (int i = 0; i <= previewSize; i++) {
                     try {
                         contents.get(i);
-                    } catch (Exception ex) {
+                    } catch (Exception ignored) {
                         continue;
                     }
+
                     if(contents.get(i).getType() == Material.AIR) return;
+
                     counter++;
-                    lore.add(ChatColor.WHITE + " - " + ChatColor.GRAY + "" + ChatColor.ITALIC + "" + contents.get(i).getAmount() + "x" + ChatColor.WHITE + " " + ChatColor.ITALIC + contents.get(i).getType().toString().replaceAll("_", " ").toLowerCase());
+
+                    contentsPreview.add(ChatUtil.colorize(SimpleBackpacks.get().getConfig().getString("backpack.lore.contents-preview").replace("{ITEM_AMOUNT}", Integer.toString(contents.get(i).getAmount())).replace("{ITEM_NAME}", contents.get(i).getType().toString().replaceAll("_", " ").toLowerCase())));
+
                 }
 
-                if (contents.size() > 5) {
-                    lore.add(" ");
-                    lore.add(ChatColor.WHITE + " " + ChatColor.WHITE + "" + ChatColor.ITALIC + "and " + ChatColor.GRAY + (contents.size() - counter) + ChatColor.WHITE + "" + ChatColor.ITALIC + " more... ");
+                if (contents.size() > previewSize) {
+                    for(String loreLine : SimpleBackpacks.get().getConfig().getStringList("backpack.lore.preview-overflow")) {
+                        contentsPreview.add(ChatUtil.colorize(loreLine).replace("{REMAINING_CONTENTS_SLOT_COUNT}", Integer.toString((contents.size() - counter))));
+                    }
                 }
 
-                lore.add(" ");
+                ArrayList<String> lore = new ArrayList<>();
+
+                int index = 0;
+                for(String loreLine : SimpleBackpacks.get().getConfig().getStringList("backpack.lore.storing")) {
+                    if(loreLine.contains("{CONTENTS_PREVIEW}")) {
+                        lore.addAll(index, contentsPreview);
+                        continue;
+                    }
+                    lore.add(ChatUtil.colorize(loreLine.replace("{SLOTS_IN_USE}", Integer.toString(contents.size())).replace("{MAX_SLOTS}", Integer.toString(SimpleBackpacks.get().getConfig().getInt("backpack.rows") * 9))));
+                    index++;
+                }
 
                 itemMeta.setLore(lore);
-
                 backpack.setItemMeta(itemMeta);
 
                 os.close();

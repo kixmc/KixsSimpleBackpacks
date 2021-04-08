@@ -2,7 +2,7 @@ package com.kixmc.backpacks.commands;
 
 import com.kixmc.backpacks.core.SimpleBackpacks;
 import com.kixmc.backpacks.contents.ItemHandler;
-import org.bukkit.ChatColor;
+import com.kixmc.backpacks.utils.ChatUtil;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.command.Command;
@@ -27,19 +27,20 @@ public class BackpackCommand implements CommandExecutor {
             if (args.length > 0) {
                 if (args[0].equalsIgnoreCase("get")) {
 
-                    ItemStack is = new ItemStack(Material.CHEST);
-                    ItemHandler.store(is, new ArrayList<ItemStack>());
+                    ItemStack is = new ItemStack(Material.valueOf(SimpleBackpacks.get().getConfig().getString("backpack.material")));
+                    ItemHandler.store(is, new ArrayList<>());
 
                     NamespacedKey key = new NamespacedKey(SimpleBackpacks.get(), "kixs-backpacks");
                     ItemMeta itemMeta = is.getItemMeta();
                     itemMeta.getPersistentDataContainer().set(key, PersistentDataType.STRING, "");
 
-                    itemMeta.setDisplayName(ChatColor.YELLOW + "Backpack");
+                    itemMeta.setDisplayName(ChatUtil.colorize(SimpleBackpacks.get().getConfig().getString("backpack.name.regular")));
 
                     ArrayList<String> lore = new ArrayList<>();
-                    lore.add(" ");
-                    lore.add(ChatColor.AQUA + "Brand new, open me!");
-                    lore.add(" ");
+
+                    for(String loreLine : SimpleBackpacks.get().getConfig().getStringList("backpack.lore.new")) {
+                        lore.add(ChatUtil.colorize(loreLine));
+                    }
 
                     itemMeta.setLore(lore);
 
