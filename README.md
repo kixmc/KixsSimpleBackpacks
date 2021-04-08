@@ -1,9 +1,7 @@
 # KixsSimpleBackpacks
 Simple customizable, survival-friendly item backpack plugin
 
-![backpack lore example](https://i.imgur.com/htdEMTS.png)
-
-![default backpack crafting recipe](https://i.imgur.com/2J5NR76.png)
+![default backpack crafting recipe](https://i.imgur.com/2J5NR76.png)    ![backpack lore example](https://i.imgur.com/htdEMTS.png)
 
 ## Features
 - **No dupes** unless the item is copied in creative mode; unique identifier assigned per backpack
