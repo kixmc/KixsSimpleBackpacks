@@ -5,6 +5,7 @@ import com.kixmc.backpacks.utils.BackpackUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -18,20 +19,24 @@ public class PlayerInteract implements Listener {
 
         if (!e.hasItem()) return;
 
-        ItemStack is = e.getItem();
+        if (e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) {
 
-        if (BackpackUtils.isBackpack(is)) {
+            ItemStack is = e.getItem();
 
-            ArrayList<ItemStack> contents = ItemHandler.get(is);
+            if (BackpackUtils.isBackpack(is)) {
 
-            Inventory backpack = Bukkit.createInventory(e.getPlayer(), 18, "Backpack");
+                ArrayList<ItemStack> contents = ItemHandler.get(is);
 
-            contents.stream()
-                    .forEach(itemStack -> backpack.addItem(itemStack));
+                Inventory backpack = Bukkit.createInventory(e.getPlayer(), 18, "Backpack");
 
-            e.getPlayer().openInventory(backpack);
+                contents.stream()
+                        .forEach(itemStack -> backpack.addItem(itemStack));
+
+                e.getPlayer().openInventory(backpack);
+
+            }
 
         }
-
     }
+
 }
