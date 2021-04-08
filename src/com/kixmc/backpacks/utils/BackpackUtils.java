@@ -12,8 +12,8 @@ public class BackpackUtils {
 
     public static boolean isBackpack(ItemStack is) {
 
-        if(is == null) return false;
-        if(is.getType() == Material.AIR) return false;
+        if (is == null) return false;
+        if (is.getType() == Material.AIR) return false;
 
         return hasKey(is, "kixs-backpacks", PersistentDataType.STRING);
 
@@ -21,8 +21,8 @@ public class BackpackUtils {
 
     public static boolean isUnopenedBackpack(ItemStack is) {
 
-        if(is == null) return false;
-        if(is.getType() == Material.AIR) return false;
+        if (is == null) return false;
+        if (is.getType() == Material.AIR) return false;
 
         return hasKey(is, "kixs-backpacks-new", PersistentDataType.STRING);
     }

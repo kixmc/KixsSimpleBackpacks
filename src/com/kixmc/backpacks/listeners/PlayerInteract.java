@@ -16,7 +16,6 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataType;
-import sun.java2d.pipe.SpanShapeRenderer;
 
 import java.util.ArrayList;
 

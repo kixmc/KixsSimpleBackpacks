@@ -25,7 +25,7 @@ public class BackpackItem {
 
         ArrayList<String> lore = new ArrayList<>();
 
-        for(String loreLine : SimpleBackpacks.get().getConfig().getStringList("backpack.lore.new")) {
+        for (String loreLine : SimpleBackpacks.get().getConfig().getStringList("backpack.lore.new")) {
             lore.add(ChatUtil.colorize(loreLine));
         }
 
@@ -52,7 +52,7 @@ public class BackpackItem {
 
         ArrayList<String> lore = new ArrayList<>();
 
-        for(String loreLine : SimpleBackpacks.get().getConfig().getStringList("backpack.lore.empty")) {
+        for (String loreLine : SimpleBackpacks.get().getConfig().getStringList("backpack.lore.empty")) {
             lore.add(ChatUtil.colorize(loreLine.replace("{SLOTS_IN_USE}", "0")).replace("{MAX_SLOTS}", Integer.toString(SimpleBackpacks.get().getConfig().getInt("backpack.rows") * 9)));
         }
 

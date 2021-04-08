@@ -16,12 +16,12 @@ public class PrepareAnvil implements Listener {
     @EventHandler
     public void onPrepare(PrepareAnvilEvent e) {
 
-        if(BackpackUtils.isBackpack(e.getResult())) {
+        if (BackpackUtils.isBackpack(e.getResult())) {
 
             ItemMeta im = e.getResult().getItemMeta();
 
             im.setDisplayName(ChatUtil.colorize(SimpleBackpacks.get().getConfig().getString("backpack.name.renamed").replace("{CUSTOM_NAME}", e.getInventory().getRenameText())));
-            im.getPersistentDataContainer().set(new NamespacedKey(SimpleBackpacks.get(),"kixs-backpacks-custom-name"), PersistentDataType.STRING, e.getInventory().getRenameText());
+            im.getPersistentDataContainer().set(new NamespacedKey(SimpleBackpacks.get(), "kixs-backpacks-custom-name"), PersistentDataType.STRING, e.getInventory().getRenameText());
 
             ItemStack result = e.getResult();
 

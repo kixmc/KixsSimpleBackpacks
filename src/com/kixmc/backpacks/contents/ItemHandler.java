@@ -36,7 +36,7 @@ public class ItemHandler {
 
             ArrayList<String> lore = new ArrayList<>();
 
-            for(String loreLine : SimpleBackpacks.get().getConfig().getStringList("backpack.lore.empty")) {
+            for (String loreLine : SimpleBackpacks.get().getConfig().getStringList("backpack.lore.empty")) {
                 lore.add(ChatUtil.colorize(loreLine.replace("{SLOTS_IN_USE}", "0")).replace("{MAX_SLOTS}", Integer.toString(SimpleBackpacks.get().getConfig().getInt("backpack.rows") * 9)));
             }
 
@@ -75,7 +75,7 @@ public class ItemHandler {
                         continue;
                     }
 
-                    if(contents.get(i).getType() == Material.AIR) return;
+                    if (contents.get(i).getType() == Material.AIR) return;
 
                     counter++;
 
@@ -84,7 +84,7 @@ public class ItemHandler {
                 }
 
                 if (contents.size() > previewSize) {
-                    for(String loreLine : SimpleBackpacks.get().getConfig().getStringList("backpack.lore.preview-overflow")) {
+                    for (String loreLine : SimpleBackpacks.get().getConfig().getStringList("backpack.lore.preview-overflow")) {
                         contentsPreview.add(ChatUtil.colorize(loreLine).replace("{REMAINING_CONTENTS_SLOT_COUNT}", Integer.toString((contents.size() - counter))));
                     }
                 }
@@ -92,8 +92,8 @@ public class ItemHandler {
                 ArrayList<String> lore = new ArrayList<>();
 
                 int index = 0;
-                for(String loreLine : SimpleBackpacks.get().getConfig().getStringList("backpack.lore.storing")) {
-                    if(loreLine.contains("{CONTENTS_PREVIEW}")) {
+                for (String loreLine : SimpleBackpacks.get().getConfig().getStringList("backpack.lore.storing")) {
+                    if (loreLine.contains("{CONTENTS_PREVIEW}")) {
                         lore.addAll(index, contentsPreview);
                         continue;
                     }

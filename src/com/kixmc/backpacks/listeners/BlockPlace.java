@@ -13,7 +13,7 @@ public class BlockPlace implements Listener {
 
         if (e.getPlayer().getInventory().getItem(e.getPlayer().getInventory().getHeldItemSlot()) == null) return;
 
-        if(BackpackUtils.isBackpack(e.getPlayer().getInventory().getItem(e.getPlayer().getInventory().getHeldItemSlot()))) {
+        if (BackpackUtils.isBackpack(e.getPlayer().getInventory().getItem(e.getPlayer().getInventory().getHeldItemSlot()))) {
             e.setCancelled(true);
         }
 
