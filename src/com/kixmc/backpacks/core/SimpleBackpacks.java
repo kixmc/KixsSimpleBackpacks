@@ -25,7 +25,7 @@ public class SimpleBackpacks extends JavaPlugin {
 
         main = this;
 
-        getCommand("backpack").setExecutor(new BackpackCommand());
+        getCommand("backpacks").setExecutor(new BackpackCommand());
 
         getServer().getPluginManager().registerEvents(new PlayerInteract(), this);
         getServer().getPluginManager().registerEvents(new InventoryClose(), this);
