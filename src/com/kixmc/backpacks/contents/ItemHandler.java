@@ -2,6 +2,7 @@ package com.kixmc.backpacks.contents;
 
 import com.kixmc.backpacks.core.SimpleBackpacks;
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -66,6 +67,7 @@ public class ItemHandler {
                     } catch (Exception ex) {
                         continue;
                     }
+                    if(contents.get(i).getType() == Material.AIR) return;
                     counter++;
                     lore.add(ChatColor.WHITE + " - " + ChatColor.GRAY + "" + ChatColor.ITALIC + "" + contents.get(i).getAmount() + "x" + ChatColor.WHITE + " " + ChatColor.ITALIC + contents.get(i).getType().toString().replaceAll("_", " ").toLowerCase());
                 }
