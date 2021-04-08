@@ -11,7 +11,7 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
 
-public class OpenBackpack implements Listener {
+public class PlayerInteract implements Listener {
 
     @EventHandler
     public void onInteract(PlayerInteractEvent e) {

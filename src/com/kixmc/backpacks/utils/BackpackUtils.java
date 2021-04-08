@@ -11,6 +11,8 @@ public class BackpackUtils {
 
     public static boolean isBackpack(ItemStack is) {
 
+        if(is == null) return false;
+
         NamespacedKey key = new NamespacedKey(SimpleBackpacks.get(), "kixs-backpacks");
         ItemMeta itemMeta = is.getItemMeta();
 

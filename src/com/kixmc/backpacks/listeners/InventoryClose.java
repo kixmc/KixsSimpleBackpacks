@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class CloseBackpack implements Listener {
+public class InventoryClose implements Listener {
 
     @EventHandler
     public void onInventoryClose(InventoryCloseEvent e) {

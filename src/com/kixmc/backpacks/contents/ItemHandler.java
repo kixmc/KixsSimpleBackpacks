@@ -1,6 +1,7 @@
 package com.kixmc.backpacks.contents;
 
 import com.kixmc.backpacks.core.SimpleBackpacks;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -33,6 +34,16 @@ public class ItemHandler {
 
         if (contents.size() == 0) {
             data.set(new NamespacedKey(SimpleBackpacks.get(), "kixs-backpacks"), PersistentDataType.STRING, "");
+
+            ArrayList<String> lore = new ArrayList<>();
+
+            lore.add(" ");
+            lore.add(ChatColor.GOLD + "0/18 " + ChatColor.WHITE + "slots in use");
+            lore.add(" ");
+
+            itemMeta.setLore(lore);
+
+            backpack.setItemMeta(itemMeta);
         } else {
 
             try {

@@ -2,8 +2,9 @@ package com.kixmc.backpacks.core;
 
 import com.kixmc.backpacks.commands.BackpackCommand;
 import com.kixmc.backpacks.listeners.BlockPlace;
-import com.kixmc.backpacks.listeners.CloseBackpack;
-import com.kixmc.backpacks.listeners.OpenBackpack;
+import com.kixmc.backpacks.listeners.InventoryClick;
+import com.kixmc.backpacks.listeners.InventoryClose;
+import com.kixmc.backpacks.listeners.PlayerInteract;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class SimpleBackpacks extends JavaPlugin {
@@ -20,9 +21,10 @@ public class SimpleBackpacks extends JavaPlugin {
 
         getCommand("backpack").setExecutor(new BackpackCommand());
 
-        getServer().getPluginManager().registerEvents(new OpenBackpack(), this);
-        getServer().getPluginManager().registerEvents(new CloseBackpack(), this);
+        getServer().getPluginManager().registerEvents(new PlayerInteract(), this);
+        getServer().getPluginManager().registerEvents(new InventoryClose(), this);
         getServer().getPluginManager().registerEvents(new BlockPlace(), this);
+        getServer().getPluginManager().registerEvents(new InventoryClick(), this);
 
     }
 
