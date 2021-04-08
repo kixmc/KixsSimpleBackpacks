@@ -1,5 +1,18 @@
 # KixsSimpleBackpacks config
+# Colorcode and hex (for 1.16+) support: & for colorcodes, &# for hex
 backpack:
+  recipe:
+    shape:
+      top: "LLL"
+      mid: "ICI"
+      btm: "LLL"
+    key:
+      L:
+        - "LEATHER"
+      I:
+        - "IRON_INGOT"
+      C:
+        - "CHEST"
   material: CHEST
   rows: 2
   gui-title: "Backpack"
@@ -9,7 +22,7 @@ backpack:
   lore:
     new:
       - " "
-      - "&bBrand new, open me!"
+      - "&bBrand new, &b&nright click&b to unbox!"
       - " "
     empty:
       - " "
@@ -26,3 +39,5 @@ backpack:
       - " &f&oand &7{REMAINING_CONTENTS_SLOT_COUNT} &f&omore..."
       - " "
     preview-slots-size: 5
+  messages:
+    unboxed: "&7Backpack unboxed! &bRight click&7 it to open!"

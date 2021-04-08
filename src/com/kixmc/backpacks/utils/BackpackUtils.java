@@ -15,15 +15,28 @@ public class BackpackUtils {
         if(is == null) return false;
         if(is.getType() == Material.AIR) return false;
 
-        NamespacedKey key = new NamespacedKey(SimpleBackpacks.get(), "kixs-backpacks");
+        return hasKey(is, "kixs-backpacks", PersistentDataType.STRING);
+
+    }
+
+    public static boolean isUnopenedBackpack(ItemStack is) {
+
+        if(is == null) return false;
+        if(is.getType() == Material.AIR) return false;
+
+        return hasKey(is, "kixs-backpacks-new", PersistentDataType.STRING);
+    }
+
+    public static boolean hasKey(ItemStack is, String targetKey, PersistentDataType type) {
+        NamespacedKey key = new NamespacedKey(SimpleBackpacks.get(), targetKey);
         ItemMeta itemMeta = is.getItemMeta();
 
         PersistentDataContainer container = itemMeta.getPersistentDataContainer();
 
         boolean foundKey = false;
 
-        if (container.has(key, PersistentDataType.STRING)) {
-            foundKey = container.get(key, PersistentDataType.STRING) != null;
+        if (container.has(key, type)) {
+            foundKey = container.get(key, type) != null;
         }
 
         return foundKey;
