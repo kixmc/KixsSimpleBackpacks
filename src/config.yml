@@ -19,6 +19,7 @@ backpack:
   name:
     regular: "&eBackpack"
     renamed: "&eBackpack: '&f{CUSTOM_NAME}&e'"
+    unopened: "&eNew Backpack"
   lore:
     new:
       - " "
