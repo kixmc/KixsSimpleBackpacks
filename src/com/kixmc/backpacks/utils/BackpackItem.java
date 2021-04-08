@@ -21,7 +21,7 @@ public class BackpackItem {
         ItemMeta itemMeta = backpack.getItemMeta();
 
         itemMeta.getPersistentDataContainer().set(key, PersistentDataType.STRING, "");
-        itemMeta.setDisplayName(ChatUtil.colorize(SimpleBackpacks.get().getConfig().getString("backpack.name.regular")));
+        itemMeta.setDisplayName(ChatUtil.colorize(SimpleBackpacks.get().getConfig().getString("backpack.name.unopened")));
 
         ArrayList<String> lore = new ArrayList<>();
 
