@@ -1,6 +1,8 @@
 # KixsSimpleBackpacks
 Barebones item backpack plugin
 
+![default backpack crafting recipe](https://i.imgur.com/2J5NR76.png)
+
 ## Features
 - **No dupes** (unless item is copied in creative mode)
 - **Very customizable**; change backpack size, lore, display name, etc. (see [config.yml](src/config.yml))
