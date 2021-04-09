@@ -16,7 +16,6 @@ public class BackpackUtils {
         if (is.getType() == Material.AIR) return false;
 
         return hasKey(is, "kixs-backpacks", PersistentDataType.STRING);
-
     }
 
     public static boolean isUnopenedBackpack(ItemStack is) {

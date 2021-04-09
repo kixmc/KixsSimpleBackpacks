@@ -36,81 +36,70 @@ public class ItemHandler {
 
             ArrayList<String> lore = new ArrayList<>();
 
-            for (String loreLine : SimpleBackpacks.get().getConfig().getStringList("backpack.lore.empty")) {
-                lore.add(ChatUtil.colorize(loreLine.replace("{SLOTS_IN_USE}", "0")).replace("{MAX_SLOTS}", Integer.toString(SimpleBackpacks.get().getConfig().getInt("backpack.rows") * 9)));
+            for (String loreLine : SimpleBackpacks.get().getConfig().getStringList("backpack.lore.empty")) { lore.add(ChatUtil.colorize(loreLine.replace("{SLOTS_IN_USE}", "0")).replace("{MAX_SLOTS}", Integer.toString(SimpleBackpacks.get().getConfig().getInt("backpack.rows") * 9))); }
+
+            itemMeta.setLore(lore);
+            backpack.setItemMeta(itemMeta);
+
+            return;
+        }
+
+        try {
+
+            ByteArrayOutputStream io = new ByteArrayOutputStream();
+            BukkitObjectOutputStream os = new BukkitObjectOutputStream(io);
+
+            os.writeInt(contents.size());
+
+            for (ItemStack item : contents) { os.writeObject(item); }
+
+            os.flush();
+
+            byte[] rawData = io.toByteArray();
+
+            String encodedData = Base64.getEncoder().encodeToString(rawData);
+
+            data.set(new NamespacedKey(SimpleBackpacks.get(), "kixs-backpacks"), PersistentDataType.STRING, encodedData);
+
+            ArrayList<String> contentsPreview = new ArrayList<>();
+
+            int previewSize = SimpleBackpacks.get().getConfig().getInt("backpack.lore.preview-slots-size");
+            int counter = 0;
+            for (int i = 1; i <= previewSize; i++) {
+                try {
+                    contents.get(i);
+                } catch (Exception ignored) { continue; }
+
+                if (contents.get(i).getType() == Material.AIR) return;
+
+                counter++;
+
+                contentsPreview.add(ChatUtil.colorize(SimpleBackpacks.get().getConfig().getString("backpack.lore.contents-preview").replace("{ITEM_AMOUNT}", Integer.toString(contents.get(i).getAmount())).replace("{ITEM_NAME}", contents.get(i).getType().toString().replaceAll("_", " ").toLowerCase())));
+
+            }
+
+            if (contents.size() > previewSize) {
+                for (String loreLine : SimpleBackpacks.get().getConfig().getStringList("backpack.lore.preview-overflow")) { contentsPreview.add(ChatUtil.colorize(loreLine).replace("{REMAINING_CONTENTS_SLOT_COUNT}", Integer.toString((contents.size() - counter)))); }
+            }
+
+            ArrayList<String> lore = new ArrayList<>();
+
+            int index = 0;
+            for (String loreLine : SimpleBackpacks.get().getConfig().getStringList("backpack.lore.storing")) {
+                if (loreLine.contains("{CONTENTS_PREVIEW}")) {
+                    lore.addAll(index, contentsPreview);
+                    continue;
+                }
+                lore.add(ChatUtil.colorize(loreLine.replace("{SLOTS_IN_USE}", Integer.toString(contents.size())).replace("{MAX_SLOTS}", Integer.toString(SimpleBackpacks.get().getConfig().getInt("backpack.rows") * 9))));
+                index++;
             }
 
             itemMeta.setLore(lore);
             backpack.setItemMeta(itemMeta);
 
-        } else {
+            os.close();
 
-            try {
-
-                ByteArrayOutputStream io = new ByteArrayOutputStream();
-                BukkitObjectOutputStream os = new BukkitObjectOutputStream(io);
-
-                os.writeInt(contents.size());
-
-                for (ItemStack item : contents) {
-                    os.writeObject(item);
-                }
-
-                os.flush();
-
-                byte[] rawData = io.toByteArray();
-
-                String encodedData = Base64.getEncoder().encodeToString(rawData);
-
-                data.set(new NamespacedKey(SimpleBackpacks.get(), "kixs-backpacks"), PersistentDataType.STRING, encodedData);
-
-                ArrayList<String> contentsPreview = new ArrayList<>();
-
-                int previewSize = SimpleBackpacks.get().getConfig().getInt("backpack.lore.preview-slots-size");
-                int counter = 0;
-                for (int i = 1; i <= previewSize; i++) {
-                    try {
-                        contents.get(i);
-                    } catch (Exception ignored) {
-                        continue;
-                    }
-
-                    if (contents.get(i).getType() == Material.AIR) return;
-
-                    counter++;
-
-                    contentsPreview.add(ChatUtil.colorize(SimpleBackpacks.get().getConfig().getString("backpack.lore.contents-preview").replace("{ITEM_AMOUNT}", Integer.toString(contents.get(i).getAmount())).replace("{ITEM_NAME}", contents.get(i).getType().toString().replaceAll("_", " ").toLowerCase())));
-
-                }
-
-                if (contents.size() > previewSize) {
-                    for (String loreLine : SimpleBackpacks.get().getConfig().getStringList("backpack.lore.preview-overflow")) {
-                        contentsPreview.add(ChatUtil.colorize(loreLine).replace("{REMAINING_CONTENTS_SLOT_COUNT}", Integer.toString((contents.size() - counter))));
-                    }
-                }
-
-                ArrayList<String> lore = new ArrayList<>();
-
-                int index = 0;
-                for (String loreLine : SimpleBackpacks.get().getConfig().getStringList("backpack.lore.storing")) {
-                    if (loreLine.contains("{CONTENTS_PREVIEW}")) {
-                        lore.addAll(index, contentsPreview);
-                        continue;
-                    }
-                    lore.add(ChatUtil.colorize(loreLine.replace("{SLOTS_IN_USE}", Integer.toString(contents.size())).replace("{MAX_SLOTS}", Integer.toString(SimpleBackpacks.get().getConfig().getInt("backpack.rows") * 9))));
-                    index++;
-                }
-
-                itemMeta.setLore(lore);
-                backpack.setItemMeta(itemMeta);
-
-                os.close();
-
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-
-        }
+        } catch (IOException ex) { ex.printStackTrace(); }
 
     }
 
@@ -136,15 +125,11 @@ public class ItemHandler {
 
                 int itemsCount = in.readInt();
 
-                for (int i = 0; i < itemsCount; i++) {
-                    items.add((ItemStack) in.readObject());
-                }
+                for (int i = 0; i < itemsCount; i++) { items.add((ItemStack) in.readObject()); }
 
                 in.close();
 
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
+            } catch (Exception ex) { ex.printStackTrace(); }
 
         }
 
