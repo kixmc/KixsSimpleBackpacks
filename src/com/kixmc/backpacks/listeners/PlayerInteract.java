@@ -9,6 +9,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -21,7 +22,7 @@ import java.util.ArrayList;
 
 public class PlayerInteract implements Listener {
 
-    @EventHandler
+    @EventHandler(priority = EventPriority.LOWEST)
     public void onInteract(PlayerInteractEvent e) {
 
         if (!e.hasItem()) return;
@@ -31,12 +32,16 @@ public class PlayerInteract implements Listener {
             ItemStack is = e.getItem();
 
             if (BackpackUtils.isUnopenedBackpack(is)) {
+
                 is.setAmount(is.getAmount() - 1);
+
                 e.getPlayer().getInventory().addItem(BackpackItem.makeNew());
+
                 String unboxMsg = SimpleBackpacks.get().getConfig().getString("backpack.messages.unboxed");
                 if (!unboxMsg.isEmpty()) {
                     e.getPlayer().sendMessage(ChatUtil.colorize(SimpleBackpacks.get().getConfig().getString("backpack.messages.unboxed")));
                 }
+
                 return;
             }
 
