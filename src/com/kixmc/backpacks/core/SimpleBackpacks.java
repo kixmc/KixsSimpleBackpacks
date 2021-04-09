@@ -2,7 +2,6 @@ package com.kixmc.backpacks.core;
 
 import com.kixmc.backpacks.commands.BackpackCommand;
 import com.kixmc.backpacks.listeners.*;
-import com.kixmc.backpacks.utils.BackpackItem;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -32,6 +31,7 @@ public class SimpleBackpacks extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new BlockPlace(), this);
         getServer().getPluginManager().registerEvents(new InventoryClick(), this);
         getServer().getPluginManager().registerEvents(new PrepareAnvil(), this);
+        getServer().getPluginManager().registerEvents(new PlayerJoin(), this);
 
         loadConfig();
         createRecipe();
