@@ -14,6 +14,7 @@ Simple & customizable survival-friendly item backpack plugin - a happy medium be
 * **Works with inventories**; storage containers, hoppers, dispensers, etc. are supported
 * **No messy backend storage**; backpack contents stored in the item itself (PersistentDataContainer)
 * **Anvil support** for renaming backpacks with respect to a configurable format
+* **Recipe book support**; backpacks and their recipe show up in player's survival recipe books
 * **Rich meta**; backpack items show a summary of its contents along with slot usage and capacity in item lore
 * **Dynamic config updates**; refreshes existing items in accordance to config changes:
   * Backpack item material, any text/lores from the config, and other options are refreshed and applied to backpacks when opened
