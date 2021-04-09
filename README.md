@@ -15,8 +15,8 @@ Simple & customizable survival-friendly item backpack plugin - a happy medium be
 * **Anvil support** for renaming backpacks with respect to a configurable format
 * **Rich meta**; backpack items show a summary of its contents along with slot usage and capacity in item lore
 * **Dynamic config updates**; refreshes existing items in accordance to config changes:
-  * If backpack size is made smaller, when players open their backpacks any items that previously fit in the older, bigger size will be dropped at their feet
   * Backpack item material, any text/lores from the config, and other options are refreshed and applied to backpacks when opened
+  * If backpack size is made smaller, when players open their backpacks any items that previously fit in the older, bigger size will be dropped at their feet
 
 ## Commands & Permissions
 - **/backpacks get**: get a backpack without having to craft it [permission: *backpacks.getcommand*]
