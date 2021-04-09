@@ -1,6 +1,6 @@
-package com.kixmc.backpacks.utils;
+package com.kixmc.backpacks.core;
 
-import com.kixmc.backpacks.core.SimpleBackpacks;
+import com.kixmc.backpacks.utils.ChatUtil;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
