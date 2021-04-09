@@ -11,6 +11,7 @@ Simple & customizable survival-friendly item backpack plugin - a happy medium be
 * **Supports any items**; all item attributes including nbt data is processed
 * **No dupes** unless the item is copied in creative mode; unique identifier assigned per backpack
 * **Very customizable**; change backpack size, lore, display name, etc. (see [config.yml](src/config.yml))
+* **Works with inventories**; storage containers, hoppers, dispensers, etc. are supported
 * **No messy backend storage**; backpack contents stored in the item itself (PersistentDataContainer)
 * **Anvil support** for renaming backpacks with respect to a configurable format
 * **Rich meta**; backpack items show a summary of its contents along with slot usage and capacity in item lore
@@ -21,6 +22,12 @@ Simple & customizable survival-friendly item backpack plugin - a happy medium be
 ## Commands & Permissions
 - **/backpacks get**: get a backpack without having to craft it [permission: *backpacks.getcommand*]
 - **/backpacks reload**: reload & update changes to the config file [permission: *backpacks.reload*]
+
+## How to use
+- Either *craft* or use the *get command* to get a backpack. Right click it to "unbox" it (anti dupe measure) and then every time you right click again you will open it!
+
+## Notes
+- Backpacks can be any item (changeable from the config). They cannot be placed even if they're a block (like default)
 
 ## Download
 https://www.spigotmc.org/resources/91098/
