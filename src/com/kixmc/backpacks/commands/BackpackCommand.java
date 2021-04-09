@@ -1,7 +1,7 @@
 package com.kixmc.backpacks.commands;
 
 import com.kixmc.backpacks.core.SimpleBackpacks;
-import com.kixmc.backpacks.utils.BackpackItem;
+import com.kixmc.backpacks.core.BackpackItem;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

@@ -2,7 +2,7 @@ package com.kixmc.backpacks.listeners;
 
 import com.kixmc.backpacks.contents.ItemHandler;
 import com.kixmc.backpacks.core.SimpleBackpacks;
-import com.kixmc.backpacks.utils.BackpackItem;
+import com.kixmc.backpacks.core.BackpackItem;
 import com.kixmc.backpacks.utils.BackpackUtils;
 import com.kixmc.backpacks.utils.ChatUtil;
 import org.bukkit.Bukkit;
