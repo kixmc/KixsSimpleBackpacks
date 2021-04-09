@@ -8,6 +8,7 @@ Simple & customizable survival-friendly item backpack plugin - a happy medium be
 ![preview images](https://i.imgur.com/vVl5ojB.png)
 
 ## Features
+* **Supports any items**; all item attributes including nbt data is processed
 * **No dupes** unless the item is copied in creative mode; unique identifier assigned per backpack
 * **Very customizable**; change backpack size, lore, display name, etc. (see [config.yml](src/config.yml))
 * **No messy backend storage**; backpack contents stored in the item itself (PersistentDataContainer)
