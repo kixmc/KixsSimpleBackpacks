@@ -52,6 +52,7 @@ public class BackpackCommand implements CommandExecutor {
                     SimpleBackpacks.get().reloadConfig();
 
                     sender.sendMessage(ChatColor.GREEN + "KixsSimpleBackpacks has been reloaded!");
+                    sender.sendMessage(ChatColor.GRAY + "Note: updates to the recipe require a restart to take effect");
 
                     break;
 
