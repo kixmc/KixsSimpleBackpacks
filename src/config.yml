@@ -15,15 +15,19 @@ backpack:
         - "CHEST"
   material: CHEST
   rows: 2
-  gui-title: "Backpack"
+  gui-title: "Contents"
   name:
-    regular: "&eBackpack"
-    renamed: "&eBackpack: '&f{CUSTOM_NAME}&e'"
-    unopened: "&eNew Backpack"
+    regular: "&eBackpack &7(right-click)"
+    renamed: "&e{CUSTOM_NAME} &7(right-click)"
+    unopened: "&eUnopened Backpack"
   lore:
     new:
       - " "
       - "&bBrand new, &b&nright click&b to unbox!"
+      - " "
+      - "&f&lTIP &7If you're planning on having"
+      - "&7multiple packs, you can name them"
+      - "&7in anvils for better organization!"
       - " "
     empty:
       - " "
