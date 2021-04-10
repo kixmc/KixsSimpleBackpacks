@@ -65,7 +65,7 @@ public class ItemHandler {
 
             int previewSize = SimpleBackpacks.get().getConfig().getInt("backpack.lore.preview-slots-size");
             int counter = 0;
-            for (int i = 1; i <= previewSize; i++) {
+            for (int i = 0; i < previewSize; i++) {
                 try {
                     contents.get(i);
                 } catch (Exception ignored) { continue; }
@@ -123,9 +123,9 @@ public class ItemHandler {
                 ByteArrayInputStream io = new ByteArrayInputStream(rawData);
                 BukkitObjectInputStream in = new BukkitObjectInputStream(io);
 
-                int itemsCount = in.readInt();
+                int count = in.readInt();
 
-                for (int i = 0; i < itemsCount; i++) { items.add((ItemStack) in.readObject()); }
+                for (int i = 0; i < count; i++) { items.add((ItemStack) in.readObject()); }
 
                 in.close();
 
