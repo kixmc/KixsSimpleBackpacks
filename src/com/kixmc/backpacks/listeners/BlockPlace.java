@@ -1,6 +1,7 @@
 package com.kixmc.backpacks.listeners;
 
 import com.kixmc.backpacks.utils.BackpackUtils;
+import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -11,9 +12,8 @@ public class BlockPlace implements Listener {
     @EventHandler(priority = EventPriority.LOWEST)
     public void onPlace(BlockPlaceEvent e) {
 
-        if (e.getPlayer().getInventory().getItem(e.getPlayer().getInventory().getHeldItemSlot()) == null) return;
-
-        if (BackpackUtils.isBackpack(e.getPlayer().getInventory().getItem(e.getPlayer().getInventory().getHeldItemSlot()))) e.setCancelled(true);
+        if (BackpackUtils.isBackpack(e.getPlayer().getInventory().getItemInMainHand())) e.setCancelled(true);
+        if (BackpackUtils.isBackpack(e.getPlayer().getInventory().getItemInOffHand())) e.setCancelled(true);
 
     }
 
