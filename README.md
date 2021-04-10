@@ -25,7 +25,8 @@ Simple & customizable survival-friendly item backpack plugin - a happy medium be
 - **/backpacks reload**: reload & update changes to the config file [permission: *backpacks.reload*]
 
 ## How to use
-- Either *craft* or use the *get command* to get a backpack. Right click it to "unbox" it (anti dupe measure) and then every time you right click again you will open it!
+- Either craft or use the get command to get a backpack. Right click it to "unbox" it (anti dupe measure) and then every time you right click again you'll open it!
+- If you plan on having multiple backpacks, it's a good idea to rename them in anvils for organization (ex "tools" or "mining")
 
 ## Notes
 - Backpacks can be any item (changeable from the config). They cannot be placed even if they're a block (like default)
