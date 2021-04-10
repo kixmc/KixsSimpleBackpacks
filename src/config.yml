@@ -41,7 +41,7 @@ backpack:
     contents-preview: " &f- &7&o{ITEM_AMOUNT}x &f&o{ITEM_NAME}"
     preview-overflow:
       - " "
-      - " &f&oand &7{REMAINING_CONTENTS_SLOT_COUNT} &f&omore..."
+      - " &f&oand &7&o{REMAINING_CONTENTS_SLOT_COUNT} &f&omore..."
       - " "
     preview-slots-size: 5
   messages:
