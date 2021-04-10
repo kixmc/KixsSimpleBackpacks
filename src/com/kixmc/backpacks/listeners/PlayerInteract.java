@@ -29,7 +29,7 @@ public class PlayerInteract implements Listener {
 
         if (e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) {
 
-            ItemStack is = e.getItem();
+            ItemStack is = e.getPlayer().getInventory().getItemInMainHand();
 
             if (BackpackUtils.isUnopenedBackpack(is)) {
 

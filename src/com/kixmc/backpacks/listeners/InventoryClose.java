@@ -20,9 +20,7 @@ public class InventoryClose implements Listener {
     @EventHandler(priority = EventPriority.LOWEST)
     public void onInventoryClose(InventoryCloseEvent e) {
 
-        if (e.getPlayer().getInventory().getItem(e.getPlayer().getInventory().getHeldItemSlot()) == null) return;
-
-        if (!(BackpackUtils.isBackpack(e.getPlayer().getInventory().getItem(e.getPlayer().getInventory().getHeldItemSlot())) && e.getView().getTitle().equals(SimpleBackpacks.get().getConfig().getString("backpack.gui-title")))) return;
+        if (!(BackpackUtils.isBackpack(e.getPlayer().getInventory().getItemInMainHand()) && e.getView().getTitle().equals(SimpleBackpacks.get().getConfig().getString("backpack.gui-title")))) return;
 
         Inventory dummyInventory = Bukkit.createInventory(e.getPlayer(), 54, "");
         Arrays.stream(e.getInventory().getContents()).filter(Objects::nonNull).forEach(dummyInventory::addItem);
@@ -31,7 +29,7 @@ public class InventoryClose implements Listener {
 
         Arrays.stream(dummyInventory.getContents()).filter(Objects::nonNull).forEach(tidiedContents::add);
 
-        ItemHandler.store(e.getPlayer().getInventory().getItem(e.getPlayer().getInventory().getHeldItemSlot()), tidiedContents);
+        ItemHandler.store(e.getPlayer().getInventory().getItemInMainHand(), tidiedContents);
 
     }
 
