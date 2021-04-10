@@ -15,12 +15,9 @@ public class BackpackItem {
     public static ItemStack makeUnopened() {
 
         ItemStack backpack = new ItemStack(Material.valueOf(SimpleBackpacks.get().getConfig().getString("backpack.material")));
-
-        NamespacedKey key = new NamespacedKey(SimpleBackpacks.get(), "kixs-backpacks-new");
-
         ItemMeta itemMeta = backpack.getItemMeta();
 
-        itemMeta.getPersistentDataContainer().set(key, PersistentDataType.STRING, "");
+        itemMeta.getPersistentDataContainer().set(new NamespacedKey(SimpleBackpacks.get(), "kixs-backpacks-new"), PersistentDataType.STRING, "");
         itemMeta.setDisplayName(ChatUtil.colorize(SimpleBackpacks.get().getConfig().getString("backpack.name.unopened")));
 
         ArrayList<String> lore = new ArrayList<>();
@@ -36,16 +33,12 @@ public class BackpackItem {
     public static ItemStack makeNew() {
 
         ItemStack backpack = new ItemStack(Material.valueOf(SimpleBackpacks.get().getConfig().getString("backpack.material")));
-
-        NamespacedKey key = new NamespacedKey(SimpleBackpacks.get(), "kixs-backpacks");
-
         ItemMeta itemMeta = backpack.getItemMeta();
 
-        itemMeta.getPersistentDataContainer().set(key, PersistentDataType.STRING, "");
-        itemMeta.setDisplayName(ChatUtil.colorize(SimpleBackpacks.get().getConfig().getString("backpack.name.regular")));
+        itemMeta.getPersistentDataContainer().set(new NamespacedKey(SimpleBackpacks.get(), "kixs-backpacks"), PersistentDataType.STRING, "");
+        itemMeta.getPersistentDataContainer().set(new NamespacedKey(SimpleBackpacks.get(), UUID.randomUUID().toString()), PersistentDataType.STRING, "");
 
-        NamespacedKey unstackableKey = new NamespacedKey(SimpleBackpacks.get(), UUID.randomUUID().toString());
-        itemMeta.getPersistentDataContainer().set(unstackableKey, PersistentDataType.STRING, "");
+        itemMeta.setDisplayName(ChatUtil.colorize(SimpleBackpacks.get().getConfig().getString("backpack.name.regular")));
 
         ArrayList<String> lore = new ArrayList<>();
 

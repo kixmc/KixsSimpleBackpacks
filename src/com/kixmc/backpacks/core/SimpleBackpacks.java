@@ -55,25 +55,27 @@ public class SimpleBackpacks extends JavaPlugin {
                 saveDefaultConfig();
             }
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
 
     }
 
     public void createRecipe() {
 
-        NamespacedKey key = new NamespacedKey(this, "kixs-backpacks");
-        ShapedRecipe recipe = new ShapedRecipe(key, BackpackItem.makeUnopened());
+        ShapedRecipe recipe = new ShapedRecipe(new NamespacedKey(this, "kixs-backpacks"), BackpackItem.makeUnopened());
 
         recipe.shape(getConfig().getString("backpack.recipe.shape.top"), getConfig().getString("backpack.recipe.shape.mid"), getConfig().getString("backpack.recipe.shape.btm"));
 
         for (String ingredientKey : getConfig().getConfigurationSection("backpack.recipe.key").getKeys(false)) {
+
             ArrayList<Material> choices = new ArrayList<>();
             for (String choice : getConfig().getStringList("backpack.recipe.key." + ingredientKey)) {
                 choices.add(Material.valueOf(choice));
             }
+
             recipe.setIngredient(ingredientKey.charAt(0), new RecipeChoice.MaterialChoice(choices));
+
         }
 
         Bukkit.addRecipe(recipe);
