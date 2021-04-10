@@ -10,7 +10,10 @@ public class PlayerJoin implements Listener {
 
     @EventHandler
     public void onJoin(PlayerJoinEvent e) {
-        e.getPlayer().discoverRecipe(new NamespacedKey(SimpleBackpacks.get(), "kixs-backpacks"));
+        NamespacedKey recipe = new NamespacedKey(SimpleBackpacks.get(), "kixs-backpacks");
+        if(e.getPlayer().hasDiscoveredRecipe(recipe)) return;
+
+        e.getPlayer().discoverRecipe(recipe);
     }
 
 }
