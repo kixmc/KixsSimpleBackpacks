@@ -16,6 +16,8 @@ backpack:
   material: CHEST
   rows: 2
   gui-title: "Contents"
+  allow-shulker-boxes-in-backpacks: false
+  allow-backpacks-in-shulker-boxes: false
   name:
     regular: "&eBackpack &7(right-click)"
     renamed: "&e{CUSTOM_NAME} &7(right-click)"

@@ -63,7 +63,13 @@ public class PlayerInteract implements Listener {
 
                 ArrayList<ItemStack> itemOverflow = new ArrayList<>();
 
+                boolean canHoldShulkerBoxes = SimpleBackpacks.get().getConfig().getBoolean("backpack.allow-shulker-boxes-in-backpacks");
+
                 for (ItemStack itemStack : contents) {
+                    if(!canHoldShulkerBoxes && itemStack.getType().toString().contains("SHULKER_BOX")) {
+                        itemOverflow.add(itemStack);
+                        continue;
+                    }
                     if (backpack.addItem(itemStack).isEmpty()) continue;
                     itemOverflow.add(itemStack);
                 }
