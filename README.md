@@ -2,7 +2,7 @@
 Simple & customizable survival-friendly item backpack plugin - a happy medium between bundles & shulker boxes
 
 ## Compatibility
-* Spigot, Paper, & CraftBukkit on versions **1.13.x - 1.16.x** (other server types may work but are not directly supported)
+* Spigot, Paper, & CraftBukkit on versions **1.14.x - 1.16.x** (other server types may work but are not directly supported)
 * Java 8 or newer
 
 ![preview images](https://i.imgur.com/vVl5ojB.png)
