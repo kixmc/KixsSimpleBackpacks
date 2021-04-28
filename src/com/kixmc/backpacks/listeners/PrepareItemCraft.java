@@ -13,7 +13,7 @@ public class PrepareItemCraft implements Listener {
     @EventHandler(priority = EventPriority.LOWEST)
     public void onCraft(PrepareItemCraftEvent e) {
 
-        for(int i = 1; i < 9; i++) {
+        for(int i = 1; i <= 9; i++) {
             if(e.getInventory().getItem(i) == null) continue;
 
             ItemStack item = e.getInventory().getItem(i);
