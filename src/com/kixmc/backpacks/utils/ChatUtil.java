@@ -10,12 +10,12 @@ public class ChatUtil {
 
     public final static char COLOR_CHAR = ChatColor.COLOR_CHAR;
 
-    // Colorizes messages with preset colorcodes (&) and if using 1.16, applies hex values via "&#hexvalue"
+    // Colorizes messages with preset colorcodes (&) and if using 1.16+, applies hex values via "&#hexvalue"
     public static String colorize(String input) {
 
         input = ChatColor.translateAlternateColorCodes('&', input);
 
-        if (Bukkit.getVersion().contains("1.16")) {
+        if (Bukkit.getVersion().contains("1.16") || Bukkit.getVersion().contains("1.17")) {
             input = translateHexColorCodes("\\&#", "", input);
         }
 
