@@ -22,7 +22,7 @@ Simple & customizable survival-friendly item backpack plugin - a happy medium be
 
 ## Commands & Permissions
 - **/backpacks get**: get a backpack without having to craft it [permission: *backpacks.getcommand*]
-- **/backpacks give \<player\>**: reload & update changes to the config file [permission: *backpacks.givecommand*]
+- **/backpacks give \<player\>**: give a backpack to the target player [permission: *backpacks.givecommand*]
 - **/backpacks reload**: reload & update changes to the config file [permission: *backpacks.reload*]
 
 ## How to use
