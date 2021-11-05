@@ -14,7 +14,7 @@ backpack:
       C:
         - "CHEST"
   material: CHEST
-  rows: 2
+  rows: 9
   gui-title: "Contents"
   allow-shulker-boxes-in-backpacks: false
   allow-backpacks-in-shulker-boxes: false
