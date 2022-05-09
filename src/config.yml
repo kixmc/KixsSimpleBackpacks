@@ -1,6 +1,7 @@
 # KixsSimpleBackpacks config
 # Colorcode and hex (for 1.16+) support: & for colorcodes, &# for hex
 backpack:
+  enable-recipe: true
   recipe:
     shape:
       top: "LLL"

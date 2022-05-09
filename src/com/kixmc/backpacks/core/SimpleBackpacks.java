@@ -35,7 +35,9 @@ public class SimpleBackpacks extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PrepareItemCraft(), this);
 
         loadConfig();
-        createRecipe();
+        if (getConfig().getBoolean("backpack.enable-recipe")) {
+            createRecipe();
+        }
 
     }
 
