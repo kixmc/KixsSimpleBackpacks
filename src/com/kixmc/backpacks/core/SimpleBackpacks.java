@@ -35,7 +35,9 @@ public class SimpleBackpacks extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PrepareItemCraft(), this);
 
         loadConfig();
-        createRecipe();
+        if (getConfig().getBoolean("backpack.enable-recipe")) {
+            createRecipe();
+        }
 
     }
 
@@ -48,6 +50,23 @@ public class SimpleBackpacks extends JavaPlugin {
 
             if (!getDataFolder().exists()) {
                 getDataFolder().mkdirs();
+            }
+            main = this;
+
+            getCommand("backpacks").setExecutor(new BackpackCommand());
+
+            getServer().getPluginManager().registerEvents(new PlayerInteract(), this);
+            getServer().getPluginManager().registerEvents(new InventoryClose(), this);
+            getServer().getPluginManager().registerEvents(new PlayerDeath(), this);
+            getServer().getPluginManager().registerEvents(new BlockPlace(), this);
+            getServer().getPluginManager().registerEvents(new InventoryClick(), this);
+            getServer().getPluginManager().registerEvents(new PrepareAnvil(), this);
+            getServer().getPluginManager().registerEvents(new PlayerJoin(), this);
+            getServer().getPluginManager().registerEvents(new PrepareItemCraft(), this);
+
+            loadConfig();
+            if (getConfig().getBoolean("backpack.enable-recipe")) {
+                createRecipe();
             }
 
             File config = new File(getDataFolder(), "config.yml");
